@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  promtail:
+    image: grafana/promtail
+    volumes:
+      #- /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      #- /var/snap/docker/common/var-lib-docker/:/var/lib/docker:ro
+      - ./docker-config.yml:/etc/promtail/docker-config.yml
+    expose:
+      - "9080"
+    #networks:
+      #nginx-proxy:
+    #environment:
+      #VIRTUAL_HOST: srqczeppy.hopto.org
+      #VIRTUAL_PATH: /promtail
+      #VIRTUAL_DEST: /
+      #DEBUG: true
+    command: -config.file=/etc/promtail/docker-config.yml
+#networks:
+  #nginx-proxy:
+    #external: true
