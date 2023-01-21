@@ -7,11 +7,11 @@ positions:
   filename: /tmp/positions.yaml
 
 clients:
-  - url: http://logs.wontontech.com:3100/loki/api/v1/push
+  - url: https://logs.wontontech.com:3100/loki/api/v1/push
 
 scrape_configs:
 
-- job_name: Arcadia-AWS-Main-containers
+- job_name: DESCRIPTIVE_NAME
   static_configs:
   - targets:
       - localhost
@@ -38,7 +38,7 @@ scrape_configs:
       format: RFC3339Nano
       source: time
   - labels:
-      host: "Arcadia AWS Main"
+      host: "DESCRIPTIVE_NAME"
       stream:
       container_id:
       tag:
